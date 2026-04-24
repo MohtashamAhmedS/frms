@@ -1,10 +1,16 @@
-import { Poppins } from "next/font/google";
+import { Poppins, Syncopate } from "next/font/google";
 import "./globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
-  weight: ["400", "600", "700"], // Add desired weights
+  weight: ["400", "600", "700"],
   variable: "--font-poppins",
+});
+
+const syncopate = Syncopate({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-syncopate",
 });
 
 export const metadata = {
@@ -15,7 +21,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={` ${poppins.variable} antialiased`}>{children}</body>
+      <body className={`${poppins.variable} ${syncopate.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
